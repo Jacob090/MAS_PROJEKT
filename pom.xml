@@ -63,7 +63,7 @@
                     <execution>
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.courierservice.mas_projekt/com.example.courierservice.mas_projekt.HelloApplication</mainClass>
+                            <mainClass>com.example.courierservice.mas_projekt/com.example.courierservice.mas_projekt.Main</mainClass>
                             <jvmArgs>
                                 <jvmArg>--enable-native-access=ALL-UNNAMED</jvmArg>
                                 <jvmArg>--enable-native-access=javafx.graphics</jvmArg>
