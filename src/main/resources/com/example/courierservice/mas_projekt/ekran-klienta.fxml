@@ -13,13 +13,13 @@
             <Font name="Roboto Bold" size="35.0" />
          </font>
       </Text>
-      <Button fx:id="ekran_klienta_powrot" layoutX="532.0" layoutY="361.0" mnemonicParsing="false" text="Powrót" />
-      <Text layoutX="52.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status paczki:">
+      <Button fx:id="ekran_klienta_powrot" layoutX="8.0" layoutY="9.0" mnemonicParsing="false" style="-fx-text-fill: #333; -fx-background-color: transparent; -fx-font-size: 14;" text="Powrót" />
+      <Text layoutX="146.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status paczki:">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Label fx:id="ekran_klienta_status_label" layoutX="164.0" layoutY="138.0" prefHeight="25.0" prefWidth="174.0" style="-fx-border-color: #cccccc;" styleClass="label-bordered" />
+      <Label fx:id="ekran_klienta_status_label" layoutX="258.0" layoutY="147.0" prefHeight="25.0" prefWidth="174.0" style="-fx-border-color: #cccccc;" styleClass="label-bordered" />
       <Button fx:id="ekran_klienta_ocen_dostawe" layoutX="135.0" layoutY="271.0" mnemonicParsing="false" text="Oceń dostawe" />
       <Button fx:id="ekran_klienta_zwrot_paczki" layoutX="374.0" layoutY="271.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Zwrot paczki" />
    </children>

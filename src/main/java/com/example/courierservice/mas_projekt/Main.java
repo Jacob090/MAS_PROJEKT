@@ -21,6 +21,7 @@ public class Main extends Application {
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
             primaryStage.centerOnScreen();
+            primaryStage.setTitle("Pocztex - aplikacja kurierska");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Błąd przy ładowaniu: " + fxmlFile);
