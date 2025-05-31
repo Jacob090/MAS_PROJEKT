@@ -24,27 +24,27 @@
       </Text>
       <HBox layoutX="108.0" layoutY="168.0" prefHeight="31.0" prefWidth="184.0">
          <children>
-            <Button fx:id="ekran_oceny_dostawy_ocena1" mnemonicParsing="false" style="-fx-background-color: transparent;" text="1">
+            <Button fx:id="ekran_oceny_dostawy_ocena1" mnemonicParsing="false" style="-fx-cursor: hand; -fx-background-color: transparent;" styleClass="transparent-hover-button" text="1">
                <font>
                   <Font size="19.0" />
                </font>
             </Button>
-            <Button fx:id="ekran_oceny_dostawy_ocena2" mnemonicParsing="false" style="-fx-background-color: transparent;" text="2">
+            <Button fx:id="ekran_oceny_dostawy_ocena2" mnemonicParsing="false" style="-fx-cursor: hand; -fx-background-color: transparent;" styleClass="transparent-hover-button" text="2">
                <font>
                   <Font size="19.0" />
                </font>
             </Button>
-            <Button fx:id="ekran_oceny_dostawy_ocena3" mnemonicParsing="false" style="-fx-background-color: transparent;" text="3">
+            <Button fx:id="ekran_oceny_dostawy_ocena3" mnemonicParsing="false" style="-fx-cursor: hand; -fx-background-color: transparent;" styleClass="transparent-hover-button" text="3">
                <font>
                   <Font size="19.0" />
                </font>
             </Button>
-            <Button fx:id="ekran_oceny_dostawy_ocena4" mnemonicParsing="false" style="-fx-background-color: transparent;" text="4">
+            <Button fx:id="ekran_oceny_dostawy_ocena4" mnemonicParsing="false" style="-fx-cursor: hand; -fx-background-color: transparent;" styleClass="transparent-hover-button" text="4">
                <font>
                   <Font size="19.0" />
                </font>
             </Button>
-            <Button fx:id="ekran_oceny_dostawy_ocena5" mnemonicParsing="false" prefHeight="37.0" prefWidth="40.0" style="-fx-background-color: transparent;" text="5">
+            <Button fx:id="ekran_oceny_dostawy_ocena5" mnemonicParsing="false" prefHeight="37.0" prefWidth="40.0" style="-fx-cursor: hand; -fx-background-color: transparent;" styleClass="transparent-hover-button" text="5">
                <font>
                   <Font size="19.0" />
                </font>
