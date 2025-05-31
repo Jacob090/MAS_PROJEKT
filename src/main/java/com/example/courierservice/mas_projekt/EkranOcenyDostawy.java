@@ -54,7 +54,6 @@ public class EkranOcenyDostawy {
     @FXML
     private void ocena(int ocena) {
         this.ocenaDostawyLiczbowo = ocena;
-        System.out.println("Wybrano ocenę: " + ocenaDostawyLiczbowo);
     }
 
     @FXML
