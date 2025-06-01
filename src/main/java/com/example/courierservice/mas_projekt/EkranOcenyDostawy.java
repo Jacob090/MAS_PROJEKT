@@ -54,6 +54,26 @@ public class EkranOcenyDostawy {
     @FXML
     private void ocena(int ocena) {
         this.ocenaDostawyLiczbowo = ocena;
+        resetujStylePrzyciskow();
+
+        String stylAktywny = "-fx-background-color: #444444; -fx-text-fill: white;";
+
+        switch (ocena) {
+            case 1 -> ekran_oceny_dostawy_ocena1.setStyle(stylAktywny);
+            case 2 -> ekran_oceny_dostawy_ocena2.setStyle(stylAktywny);
+            case 3 -> ekran_oceny_dostawy_ocena3.setStyle(stylAktywny);
+            case 4 -> ekran_oceny_dostawy_ocena4.setStyle(stylAktywny);
+            case 5 -> ekran_oceny_dostawy_ocena5.setStyle(stylAktywny);
+        }
+    }
+
+    private void resetujStylePrzyciskow() {
+        String stylDomyslny = "-fx-background-color: transparent;";
+        ekran_oceny_dostawy_ocena1.setStyle(stylDomyslny);
+        ekran_oceny_dostawy_ocena2.setStyle(stylDomyslny);
+        ekran_oceny_dostawy_ocena3.setStyle(stylDomyslny);
+        ekran_oceny_dostawy_ocena4.setStyle(stylDomyslny);
+        ekran_oceny_dostawy_ocena5.setStyle(stylDomyslny);
     }
 
     @FXML

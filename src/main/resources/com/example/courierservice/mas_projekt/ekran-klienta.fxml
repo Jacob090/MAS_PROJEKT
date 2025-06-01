@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #EAF6FF; -fx-background-radius: 5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courierservice.mas_projekt.EkranKlienta">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightgray; -fx-background-radius: 5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courierservice.mas_projekt.EkranKlienta">
    <children>
       <Text layoutX="106.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Śledzenie twoich paczek">
          <font>
@@ -20,7 +20,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Label fx:id="ekran_klienta_status_label" layoutX="258.0" layoutY="224.0" prefHeight="25.0" prefWidth="174.0" style="-fx-border-color: #cccccc;" styleClass="label-bordered" />
+      <Label fx:id="ekran_klienta_status_label" layoutX="258.0" layoutY="224.0" prefHeight="25.0" prefWidth="174.0" style="-fx-border-color: #cccccc; -fx-background-color: gray;" styleClass="label-bordered" />
       <Button fx:id="ekran_klienta_ocen_dostawe" layoutX="135.0" layoutY="306.0" mnemonicParsing="false" text="Oceń dostawe" />
       <Button fx:id="ekran_klienta_zwrot_paczki" layoutX="374.0" layoutY="306.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Zwrot paczki" />
       <Line endX="494.0" layoutX="111.0" layoutY="39.0" startX="-111.0" startY="7.0" />
