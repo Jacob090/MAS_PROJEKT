@@ -2,7 +2,7 @@ package com.example.courierservice.mas_projekt;
 
 public class Klient extends Uzytkownik {
     private String adres;
-    private String miasto
+    private String miasto;
     private String telefon;
     private String email;
 
