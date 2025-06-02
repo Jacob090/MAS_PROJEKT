@@ -1,5 +1,6 @@
-package com.example.courierservice.mas_projekt;
+package com.example.courierservice.mas_projekt.GUI;
 
+import com.example.courierservice.mas_projekt.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
