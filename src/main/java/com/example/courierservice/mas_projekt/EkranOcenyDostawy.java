@@ -42,7 +42,7 @@ public class EkranOcenyDostawy {
         ekran_oceny_dostawy_ocena5.setOnAction(action -> ocena(5));
         ekran_oceny_zatwierdzanie.setOnAction(action -> zatwierdzenieOcenyDostawy());
 
-        ekran_oceny_komentarz.setText("");
+        //ekran_oceny_komentarz.setText("");
         ekran_oceny_komentarz.setEditable(true);
     }
 

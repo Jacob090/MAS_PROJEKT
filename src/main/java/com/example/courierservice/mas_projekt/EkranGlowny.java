@@ -1,6 +1,7 @@
 package com.example.courierservice.mas_projekt;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -33,17 +34,20 @@ public class EkranGlowny {
     }
 
     private void otworzPanelKurier() {
-        System.out.println("Kliknięto: Kurier");
-        // TODO: załaduj widok kuriera
+        Main.switchScene("ekran-logowania-kuriera.fxml");
     }
 
     private void otworzPanelAdmin() {
-        System.out.println("Kliknięto: Administrator");
-        // TODO: załaduj widok administratora
+        Main.switchScene("ekran-logowania-administratora.fxml");
     }
 
     private void szukanaPaczka() {
         String numerPaczki = ekran_glowny_wpisz_nr_paczki.getText();
-        System.out.println("Wpisany numer paczki: " + numerPaczki);
+        if(numerPaczki.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Błędny numer paczki");
+            alert.setHeaderText("Prosze wpisać poprawny numer paczki!");
+            alert.showAndWait();
+        }
     }
 }
