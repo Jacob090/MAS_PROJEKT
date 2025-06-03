@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
+import java.lang.System;
 
 public class Main extends Application {
     private static Stage primaryStage;
@@ -12,7 +13,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         primaryStage = stage;
-        switchScene("ekran-glowny-logowania.fxml"); //ekran-glowny-logowania.fxml
+        switchScene("ekran-kuriera.fxml"); //ekran-glowny-logowania.fxml
     }
 
     public static void switchScene(String fxmlFile) {

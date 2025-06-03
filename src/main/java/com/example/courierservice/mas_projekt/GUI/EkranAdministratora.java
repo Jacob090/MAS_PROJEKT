@@ -51,7 +51,7 @@ public class EkranAdministratora {
     private ListView<String> ekran_administratora_lista_paczek;
 
     @FXML
-    private ListView<Kurier> ekran_administratora_lista_kurierów;
+    private ListView<String> ekran_administratora_lista_kurierów;
 
     @FXML
     private ListView<String> ekran_administratora_lista_pojazdow;
