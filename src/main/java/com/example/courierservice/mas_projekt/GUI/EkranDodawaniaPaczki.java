@@ -31,6 +31,22 @@ public class EkranDodawaniaPaczki {
     }
 
     private void dodaj() {
+
+        String imie = ekran_dodawania_paczki_imie_odbiorcy.getText().trim();
+        String nazwisko = ekran_dodawania_paczki_nazwisko_odbiorcy.getText().trim();
+        String adres = ekran_dodawania_paczki_adres_odbiorcy.getText().trim();
+        String miasto = ekran_dodawania_paczki_miasto_odbiorcy.getText().trim();
+
+        // Walidacja wymaganych pól
+        if (imie.isEmpty() || nazwisko.isEmpty() || adres.isEmpty() || miasto.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Brak danych");
+            alert.setHeaderText("Niepełne dane paczki");
+            alert.setContentText("Uzupełnij wszystkie wymagane pola: imię, nazwisko, adres, miasto.");
+            alert.showAndWait();
+            return;
+        }
+
         String typ = null;
         if (ekran_dodawania_paczki_typ_zwykla.isSelected() && !ekran_dodawania_paczki_typ_priorytetowa.isSelected()) {
             typ = "Zwykła";

@@ -16,4 +16,13 @@
   "status" : "Przyjęta",
   "typ" : "Zwykła",
   "notatka" : ""
+}, {
+  "numerPaczki" : 3,
+  "imieOdbiorcy" : "Artur",
+  "nazwiskoOdbiorcy" : "Pawlak",
+  "miastoDostawy" : "Warszawa",
+  "adresDostawy" : "Plac Europejski 1",
+  "status" : "Przyjęta",
+  "typ" : "Priorytetowa",
+  "notatka" : ""
 } ]
