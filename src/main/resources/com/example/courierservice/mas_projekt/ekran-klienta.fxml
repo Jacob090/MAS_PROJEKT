@@ -21,6 +21,6 @@
       <Label fx:id="ekran_klienta_status_label" layoutX="258.0" layoutY="213.0" prefHeight="25.0" prefWidth="174.0" style="-fx-border-color: #cccccc; -fx-background-color: #c8c8c8; -fx-background-radius: 8; -fx-border-color: gray; -fx-border-radius: 6;" styleClass="label-bordered" textAlignment="CENTER" textFill="#fcfcfc" />
       <Button fx:id="ekran_klienta_ocen_dostawe" layoutX="113.0" layoutY="306.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="114.0" text="Oceń dostawe" />
       <Button fx:id="ekran_klienta_zwrot_paczki" layoutX="374.0" layoutY="306.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="114.0" text="Złóż reklamacje" />
-      <Line endX="494.0" layoutX="111.0" layoutY="39.0" startX="-111.0" startY="7.0" />
+      <Line endX="495.5" endY="7.0" layoutX="111.0" layoutY="39.0" startX="-111.0" startY="7.0" />
    </children>
 </AnchorPane>

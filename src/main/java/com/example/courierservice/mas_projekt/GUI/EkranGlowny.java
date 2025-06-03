@@ -35,10 +35,18 @@ public class EkranGlowny {
                     EkranKlienta.ustawPaczke(znaleziona);
                     Main.switchScene("ekran-klienta.fxml");
                 } else {
-                    System.out.println("Nie znaleziono paczki o numerze: " + numer);
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Błąd");
+                    alert.setHeaderText("Nie znaleziono paczki o numerze: " + numer + "");
+                    alert.showAndWait();
+                    return;
                 }
             } catch (NumberFormatException ex) {
-                System.out.println("Wprowadź poprawny numer paczki.");
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Błąd");
+                alert.setHeaderText("Wprowadź poprawny numer paczki.");
+                alert.showAndWait();
+                return;
             }
         });
     }
