@@ -1,0 +1,10 @@
+[ {
+  "numerPaczki" : 1,
+  "imieOdbiorcy" : "Jan",
+  "nazwiskoOdbiorcy" : "Kowalski",
+  "miastoDostawy" : "Warszawa",
+  "adresDostawy" : "Koszykowa 11",
+  "status" : "Przyjęta",
+  "typ" : "Priorytetowa",
+  "notatka" : "wwwww"
+} ]

@@ -15,7 +15,7 @@ public class EkranLogowaniaKuriera {
     private PasswordField ekran_logowania_kuriera_haslo;
 
     @FXML
-    private TextArea ekran_logowania_kuriera_login;
+    private TextField ekran_logowania_kuriera_login;
 
     public void initialize() {
         ekran_logowania_kuriera_zaloguj.setOnAction(event -> zaloguj());

@@ -25,4 +25,5 @@ public class Kurier extends Uzytkownik {
     public void setPojazdId(String pojazdId) {
         this.pojazdId = pojazdId;
     }
+
 }

@@ -2,7 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -32,7 +32,7 @@
          </font>
       </Text>
       <PasswordField fx:id="ekran_logowania_administratora_haslo" layoutX="92.0" layoutY="247.0" prefHeight="37.0" prefWidth="249.0" />
-      <TextArea fx:id="ekran_logowania_administratora_login" layoutX="91.0" layoutY="182.0" prefHeight="20.0" prefWidth="249.0" style="-fx-background-radius: 8;" />
       <Button fx:id="ekran_logowania_administratora_wstecz" layoutX="7.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: lightgray; -fx-border-color: gray; -fx-border-radius: 6; -fx-cursor: hand;" text="Wstecz" />
+      <TextField fx:id="ekran_logowania_administratora_login" layoutX="92.0" layoutY="182.0" prefHeight="37.0" prefWidth="249.0" />
    </children>
 </AnchorPane>

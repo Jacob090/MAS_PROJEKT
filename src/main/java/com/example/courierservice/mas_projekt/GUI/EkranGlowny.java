@@ -44,7 +44,7 @@ public class EkranGlowny {
         String numerPaczki = ekran_glowny_wpisz_nr_paczki.getText();
         if(numerPaczki.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Błędny numer paczki");
+            alert.setTitle("Błąd");
             alert.setHeaderText("Prosze wpisać poprawny numer paczki!");
             alert.showAndWait();
         }

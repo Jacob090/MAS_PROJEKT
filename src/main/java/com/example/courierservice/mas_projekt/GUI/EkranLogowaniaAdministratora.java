@@ -15,7 +15,7 @@ public class EkranLogowaniaAdministratora {
     private PasswordField ekran_logowania_administratora_haslo;
 
     @FXML
-    private TextArea ekran_logowania_administratora_login;
+    private TextField ekran_logowania_administratora_login;
 
     public void initialize() {
         ekran_logowania_administratora_zaloguj.setOnAction(event -> zaloguj());
@@ -31,8 +31,15 @@ public class EkranLogowaniaAdministratora {
             alert.setHeaderText("Puste pola");
             alert.setContentText("Proszę wypełnić oba pola: login i hasło.");
             alert.showAndWait();
+        } else if (login.equals("admin") && haslo.equals("admin")) {
+            Main.switchScene("ekran-administratora.fxml");
+        }else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Błąd logowania!");
+            alert.setHeaderText("Wprowadzono niepoprawne dane!");
+            alert.setContentText("Proszę podać poprawny login i hasło.");
+            alert.showAndWait();
         }
-        //TODO dodać opcje logowania do panelu administratora
     }
 
     private void powrot(){
