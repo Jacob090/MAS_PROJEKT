@@ -1,6 +1,8 @@
 package com.example.courierservice.mas_projekt.GUI;
 
+import com.example.courierservice.mas_projekt.Klient;
 import com.example.courierservice.mas_projekt.Main;
+import com.example.courierservice.mas_projekt.Paczka;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -22,14 +24,23 @@ public class EkranGlowny {
 
     @FXML
     public void initialize() {
-        ekran_glowny_znajdz_paczke.setOnAction(event -> znajdzPrzesylke());
         ekran_glowny_logowanie_kuriera.setOnAction(event -> otworzPanelKurier());
         ekran_glowny_logowanie_administratora.setOnAction(event -> otworzPanelAdmin());
-        ekran_glowny_wpisz_nr_paczki.setOnAction(Event -> szukanaPaczka());
-    }
 
-    private void znajdzPrzesylke() {
-        szukanaPaczka();
+        ekran_glowny_znajdz_paczke.setOnAction(e -> {
+            try {
+                int numer = Integer.parseInt(ekran_glowny_wpisz_nr_paczki.getText().trim());
+                Paczka znaleziona = Klient.znajdzPaczkePoNumerze(numer);
+                if (znaleziona != null) {
+                    EkranKlienta.ustawPaczke(znaleziona);
+                    Main.switchScene("ekran-klienta.fxml");
+                } else {
+                    System.out.println("Nie znaleziono paczki o numerze: " + numer);
+                }
+            } catch (NumberFormatException ex) {
+                System.out.println("Wprowadź poprawny numer paczki.");
+            }
+        });
     }
 
     private void otworzPanelKurier() {
@@ -38,15 +49,5 @@ public class EkranGlowny {
 
     private void otworzPanelAdmin() {
         Main.switchScene("ekran-logowania-administratora.fxml");
-    }
-
-    private void szukanaPaczka() {
-        String numerPaczki = ekran_glowny_wpisz_nr_paczki.getText();
-        if(numerPaczki.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Błąd");
-            alert.setHeaderText("Prosze wpisać poprawny numer paczki!");
-            alert.showAndWait();
-        }
     }
 }

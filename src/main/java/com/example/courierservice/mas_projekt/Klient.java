@@ -1,5 +1,12 @@
 package com.example.courierservice.mas_projekt;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+
 public class Klient extends Uzytkownik {
     private String adres;
     private String miasto;
@@ -45,4 +52,24 @@ public class Klient extends Uzytkownik {
     public void setMiasto(String miasto) {
         this.miasto = miasto;
     }
+
+    public static Paczka znajdzPaczkePoNumerze(int numerPaczki) {
+        ObjectMapper mapper = new ObjectMapper();
+        File file = new File("paczki.json");
+
+        try {
+            if (!file.exists()) return null;
+
+            List<Paczka> paczki = mapper.readValue(file, new TypeReference<List<Paczka>>() {});
+            for (Paczka p : paczki) {
+                if (p.getNumerPaczki() == numerPaczki) {
+                    return p;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

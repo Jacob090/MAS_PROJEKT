@@ -7,4 +7,13 @@
   "status" : "Przyjęta",
   "typ" : "Priorytetowa",
   "notatka" : "wwwww"
+}, {
+  "numerPaczki" : 2,
+  "imieOdbiorcy" : "Marek",
+  "nazwiskoOdbiorcy" : "Przybylski",
+  "miastoDostawy" : "Warszawa",
+  "adresDostawy" : "Widokowa 11a",
+  "status" : "Przyjęta",
+  "typ" : "Zwykła",
+  "notatka" : ""
 } ]
