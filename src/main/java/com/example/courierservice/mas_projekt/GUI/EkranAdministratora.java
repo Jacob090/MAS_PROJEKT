@@ -16,6 +16,11 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
+
+
 public class EkranAdministratora {
     @FXML
     private Button ekran_administratora_dodaj_paczke;
@@ -51,20 +56,23 @@ public class EkranAdministratora {
     private ListView<String> ekran_administratora_lista_paczek;
 
     @FXML
-    private ListView<String> ekran_administratora_lista_kurierów;
+    private ListView<String> ekran_administratora_lista_kurierow;
 
     @FXML
     private ListView<String> ekran_administratora_lista_pojazdow;
 
     private final ObjectMapper mapper = new ObjectMapper();
     private final String SCIEZKA_PACZKI = "paczki.json";
+    private final String SCIEZKA_KURIERZY = "kurierzy.json";
 
     public void initialize(){
         ekran_administratora_dodaj_paczke.setOnAction(event -> dodajPaczke());
         ekran_administratora_wyloguj.setOnAction(event -> wyloguj());
         ekran_administratora_usun_paczke.setOnAction(event -> usunPaczke());
+        ekran_administratora_dodaj_kuriera.setOnAction(event -> dodajKuriera());
 
         wczytajListePaczek();
+        wczytajListeKurierow();
     }
 
     private void wyloguj(){
@@ -106,12 +114,52 @@ public class EkranAdministratora {
             Matcher matcher = pattern.matcher(selected);
             if (matcher.find()) {
                 int numerPaczki = Integer.parseInt(matcher.group(1));
-                administrator.usunPaczke(numerPaczki);
-                wczytajListePaczek(); // odświeżenie
+
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Potwierdzenie usunięcia");
+                alert.setHeaderText(null);
+                alert.setContentText("Czy na pewno chcesz usunąć paczkę #" + numerPaczki + "?");
+
+                alert.showAndWait().ifPresent(response -> {
+                    if (response == ButtonType.OK) {
+                        administrator.usunPaczke(numerPaczki);
+                        wczytajListePaczek();
+                    }
+                });
             }
         } else {
-            System.out.println("Zaznacz paczkę do usunięcia.");
+            Alert infoAlert = new Alert(Alert.AlertType.INFORMATION);
+            infoAlert.setTitle("Brak wyboru");
+            infoAlert.setHeaderText(null);
+            infoAlert.setContentText("Zaznacz paczkę do usunięcia.");
+            infoAlert.showAndWait();
         }
     }
+
+    private void dodajKuriera() {
+        Main.switchScene("ekran-dodawania-kuriera.fxml");
+    }
+
+    private void wczytajListeKurierow() {
+        File file = new File(SCIEZKA_KURIERZY);
+        if (!file.exists()) {
+            System.out.println("Plik kurierzy.json nie istnieje.");
+            return;
+        }
+
+        try {
+            List<Kurier> kurierzy = mapper.readValue(file, new TypeReference<List<Kurier>>() {});
+            ekran_administratora_lista_kurierow.getItems().clear();
+            for (Kurier k : kurierzy) {
+                String opis = "#" + k.getId() + ": " +
+                        k.getImie() + " " + k.getNazwisko() +
+                        ", miasto: " + k.getMiastoObslugi();
+                ekran_administratora_lista_kurierow.getItems().add(opis);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }

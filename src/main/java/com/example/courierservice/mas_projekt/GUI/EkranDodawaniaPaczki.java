@@ -37,7 +37,6 @@ public class EkranDodawaniaPaczki {
         String adres = ekran_dodawania_paczki_adres_odbiorcy.getText().trim();
         String miasto = ekran_dodawania_paczki_miasto_odbiorcy.getText().trim();
 
-        // Walidacja wymaganych pól
         if (imie.isEmpty() || nazwisko.isEmpty() || adres.isEmpty() || miasto.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Brak danych");

@@ -1,0 +1,8 @@
+[ {
+  "id" : 1,
+  "imie" : "Filip",
+  "nazwisko" : "Kowalski",
+  "login" : "filip.kowalski",
+  "haslo" : "1234",
+  "miastoObslugi" : "Warszawa"
+} ]

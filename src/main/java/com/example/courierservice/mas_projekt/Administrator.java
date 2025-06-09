@@ -7,10 +7,12 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.System;
 
 public class Administrator extends Uzytkownik {
     private String haslo;
 
+    private static final String KURIERZY_JSON = "kurierzy.json";
     private static final String PACZKI_JSON = "paczki.json";
     private final ObjectMapper mapper = new ObjectMapper();
 
@@ -42,7 +44,6 @@ public class Administrator extends Uzytkownik {
                 paczki = mapper.readValue(file, new TypeReference<List<Paczka>>() {});
             }
 
-            // automatyczne ID
             int maxId = paczki.stream().mapToInt(Paczka::getNumerPaczki).max().orElse(0);
             paczka.setNumerPaczki(maxId + 1);
 
@@ -65,6 +66,28 @@ public class Administrator extends Uzytkownik {
             paczki.removeIf(p -> p.getNumerPaczki() == numerPaczki);
 
             mapper.writerWithDefaultPrettyPrinter().writeValue(file, paczki);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void dodajKuriera(String imie, String nazwisko, String miastoObslugi) {
+        try {
+            List<Kurier> kurierzy = new ArrayList<>();
+            File file = new File(KURIERZY_JSON);
+
+            if (file.exists()) {
+                kurierzy = mapper.readValue(file, new TypeReference<List<Kurier>>() {});
+            }
+
+            int noweId = kurierzy.stream().mapToInt(Kurier::getId).max().orElse(0) + 1;
+
+            Kurier nowyKurier = new Kurier(noweId, imie, nazwisko, miastoObslugi);
+            kurierzy.add(nowyKurier);
+
+            mapper.writerWithDefaultPrettyPrinter().writeValue(file, kurierzy);
+            System.out.println("Dodano nowego kuriera: " + nowyKurier);
+
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,29 +1,59 @@
 package com.example.courierservice.mas_projekt;
 
 public class Kurier extends Uzytkownik {
-    private String miasto;
-    private String pojazdId;
+    private String login;
+    private String haslo;
+    private String miastoObslugi;
 
-    public Kurier(int id, String imie, String nazwisko, String miasto, String pojazdId) {
+    public Kurier(int id, String imie, String nazwisko, String miastoObslugi) {
         super(id, imie, nazwisko);
-        this.miasto = miasto;
-        this.pojazdId = pojazdId;
+        this.login = generujLogin(imie, nazwisko);
+        this.haslo = "1234";
+        this.miastoObslugi = miastoObslugi;
     }
 
-    public String getMiasto() {
-        return miasto;
+    public Kurier() {
+        super(0, "", "");
+        this.login = "";
+        this.haslo = "1234";
+        this.miastoObslugi = "";
     }
 
-    public String getPojazdId() {
-        return pojazdId;
+
+    private String generujLogin(String imie, String nazwisko) {
+        return imie.toLowerCase().replaceAll("\\s+", "") + "." + nazwisko.toLowerCase().replaceAll("\\s+", "");
     }
 
-    public void setMiasto(String miasto) {
-        this.miasto = miasto;
+    public String getLogin() {
+        return login;
     }
 
-    public void setPojazdId(String pojazdId) {
-        this.pojazdId = pojazdId;
+    public String getHaslo() {
+        return haslo;
     }
 
+    public String getMiastoObslugi() {
+        return miastoObslugi;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void setHaslo(String haslo) {
+        this.haslo = haslo;
+    }
+
+    public void setMiastoObslugi(String miastoObslugi) {
+        this.miastoObslugi = miastoObslugi;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Kurier: %s %s (ID: %d, login: %s, miasto: %s)", imie, nazwisko, id, login, miastoObslugi);
+    }
 }
