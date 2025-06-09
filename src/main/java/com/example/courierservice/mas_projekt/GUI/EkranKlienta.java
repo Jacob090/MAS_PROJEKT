@@ -31,7 +31,7 @@ public class EkranKlienta {
         ekran_klienta_zwrot_paczki.setOnAction(event -> zwrotPaczki());
 
         if (paczka != null) {
-            ekran_klienta_status_label.setText("      " + paczka.getStatus());
+            ekran_klienta_status_label.setText(paczka.getStatus());
         }
 
         ekran_klienta_ocen_dostawe.setDisable(true);
