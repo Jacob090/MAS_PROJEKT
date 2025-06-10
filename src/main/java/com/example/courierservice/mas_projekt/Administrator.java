@@ -80,9 +80,7 @@ public class Administrator extends Uzytkownik {
                 kurierzy = mapper.readValue(file, new TypeReference<List<Kurier>>() {});
             }
 
-            int noweId = kurierzy.stream().mapToInt(Kurier::getId).max().orElse(0) + 1;
-
-            Kurier nowyKurier = new Kurier(noweId, imie, nazwisko, miastoObslugi);
+            Kurier nowyKurier = new Kurier(Uzytkownik.generateUniqueId(), imie, nazwisko, miastoObslugi);
             kurierzy.add(nowyKurier);
 
             mapper.writerWithDefaultPrettyPrinter().writeValue(file, kurierzy);
@@ -92,4 +90,28 @@ public class Administrator extends Uzytkownik {
             e.printStackTrace();
         }
     }
+
+    public void usunKurier(int idKurier) {
+        try {
+            File file = new File(KURIERZY_JSON);
+            List<Kurier> kurierzy = new ArrayList<>();
+
+            if (file.exists()) {
+                kurierzy = mapper.readValue(file, new TypeReference<List<Kurier>>() {});
+            }
+
+            boolean usunieto = kurierzy.removeIf(k -> k.getId() == idKurier);
+
+            if (usunieto) {
+                mapper.writerWithDefaultPrettyPrinter().writeValue(file, kurierzy);
+                System.out.println("Usunięto kuriera o ID: " + idKurier);
+            } else {
+                System.out.println("Nie znaleziono kuriera o ID: " + idKurier);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -2,6 +2,7 @@ package com.example.courierservice.mas_projekt.GUI;
 
 import com.example.courierservice.mas_projekt.Administrator;
 import com.example.courierservice.mas_projekt.Kurier;
+import com.example.courierservice.mas_projekt.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -14,7 +15,7 @@ public class EkranDodawaniaKuriera {
     @FXML private TextField ekran_dodawania_kuriera_nazwisko;
     @FXML private TextField ekran_dodawania_kuriera_miasto;
 
-    private Administrator administrator = new Administrator(); // zakładamy konstruktor domyślny
+    private Administrator administrator = new Administrator();
 
     public void initialize() {
         ekran_dodawania_kuriera_zatwierdz.setOnAction(event -> zatwierdz());
@@ -45,5 +46,7 @@ public class EkranDodawaniaKuriera {
         ekran_dodawania_kuriera_imie.clear();
         ekran_dodawania_kuriera_nazwisko.clear();
         ekran_dodawania_kuriera_miasto.clear();
+
+        Main.switchScene("ekran-administratora.fxml");
     }
 }

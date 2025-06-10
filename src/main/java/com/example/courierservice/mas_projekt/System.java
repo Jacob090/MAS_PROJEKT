@@ -39,7 +39,6 @@ public class System {
     }
 
     public void dodajPaczke(Paczka paczka) {
-        // automatyczny numer
         int max = paczki.stream().mapToInt(Paczka::getNumerPaczki).max().orElse(0);
         paczka.setNumerPaczki(max + 1);
         paczki.add(paczka);

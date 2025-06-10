@@ -7,6 +7,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -34,12 +36,12 @@ public abstract class Uzytkownik {
         this.nazwisko = nazwisko;
     }
 
-    private static int generateUniqueId() {
+    public static int generateUniqueId() {
         Set<Integer> istniejąceId = new HashSet<>();
 
-        istniejąceId.addAll(loadIds(PLIK_KURIERZY, new TypeReference<List<Kurier>>() {}));
-        istniejąceId.addAll(loadIds(PLIK_KLIENCI, new TypeReference<List<Klient>>() {}));
-        istniejąceId.addAll(loadIds(PLIK_ADMINISTRATORZY, new TypeReference<List<Administrator>>() {}));
+        istniejąceId.addAll(Uzytkownik.<Kurier>loadIds("kurierzy.json", new TypeReference<List<Kurier>>() {}));
+        istniejąceId.addAll(Uzytkownik.<Klient>loadIds("klienci.json", new TypeReference<List<Klient>>() {}));
+        istniejąceId.addAll(Uzytkownik.<Administrator>loadIds("administratorzy.json", new TypeReference<List<Administrator>>() {}));
 
         int newId = 1;
         while (istniejąceId.contains(newId)) {
@@ -48,22 +50,25 @@ public abstract class Uzytkownik {
         return newId;
     }
 
-    private static <T extends Uzytkownik> Set<Integer> loadIds(String filePath, TypeReference<List<T>> typeRef) {
-        try {
-            File file = new File(filePath);
-            if (file.exists()) {
-                List<T> users = mapper.readValue(file, typeRef);
-                Set<Integer> ids = new HashSet<>();
-                for (T user : users) {
-                    ids.add(user.getId());
-                }
-                return ids;
-            }
-        } catch (Exception e) {
-            System.out.println("Błąd przy odczycie ID z " + filePath);
+    private static <T extends Uzytkownik> Set<Integer> loadIds(String filePath, TypeReference<List<T>> typeReference) {
+        File file = new File(filePath);
+        if (!file.exists()) {
+            return Collections.emptySet();
         }
-        return new HashSet<>();
+
+        try {
+            List<T> lista = mapper.readValue(file, typeReference);
+            Set<Integer> ids = new HashSet<>();
+            for (T u : lista) {
+                ids.add(u.id);
+            }
+            return ids;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return Collections.emptySet();
+        }
     }
+
 
     public int getId() {
         return id;

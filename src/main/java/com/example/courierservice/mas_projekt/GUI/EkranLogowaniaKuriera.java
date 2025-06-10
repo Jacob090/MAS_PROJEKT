@@ -1,8 +1,16 @@
 package com.example.courierservice.mas_projekt.GUI;
 
+import com.example.courierservice.mas_projekt.Kurier;
+import com.example.courierservice.mas_projekt.Logowanie;
 import com.example.courierservice.mas_projekt.Main;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class EkranLogowaniaKuriera {
     @FXML
@@ -32,7 +40,8 @@ public class EkranLogowaniaKuriera {
             alert.setContentText("Proszę wypełnić oba pola: login i hasło.");
             alert.showAndWait();
         }
-        //TODO dodać opcje logowania do panelu kuriera
+        Logowanie logowanie = new Logowanie(login,haslo);
+        logowanie.zalogujKurier();
     }
 
     private void powrot(){

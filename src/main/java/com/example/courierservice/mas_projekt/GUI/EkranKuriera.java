@@ -1,5 +1,6 @@
 package com.example.courierservice.mas_projekt.GUI;
 
+import com.example.courierservice.mas_projekt.Kurier;
 import com.example.courierservice.mas_projekt.Main;
 import com.example.courierservice.mas_projekt.Paczka;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -48,32 +49,36 @@ public class EkranKuriera {
         wczytajListePaczek();
     }
 
+    private Kurier zalogowanyKurier;
+
     private void wczytajListePaczek() {
-        File file = new File(SCIEZKA_PACZKI);
-        if (!file.exists()) {
-            System.out.println("Plik paczki.json nie istnieje.");
-            return;
-        }
+        if (zalogowanyKurier == null) return;
 
         try {
+            File file = new File(SCIEZKA_PACZKI);
+            if (!file.exists()) return;
+
             List<Paczka> paczki = mapper.readValue(file, new TypeReference<List<Paczka>>() {});
             ekran_kuriera_lista_paczek.getItems().clear();
+
             for (Paczka p : paczki) {
-                String opis = "#" + p.getNumerPaczki() + ": " +
-                        p.getImieOdbiorcy() + " " + p.getNazwiskoOdbiorcy() +
-                        ", " + p.getMiastoDostawy() +
-                        ", status: " + p.getStatus() +
-                        ", typ: " + p.getTyp();
-
-                if (p.getNotatka() != null && !p.getNotatka().isBlank()) {
-                    opis += ", notatka: " + p.getNotatka();
+                if (p.getMiastoDostawy().equalsIgnoreCase(zalogowanyKurier.getMiastoObslugi())) {
+                    String opis = "#" + p.getNumerPaczki() + ": " +
+                            p.getImieOdbiorcy() + " " + p.getNazwiskoOdbiorcy() +
+                            ", " + p.getMiastoDostawy() +
+                            ", status: " + p.getStatus() +
+                            ", typ: " + p.getTyp();
+                    ekran_kuriera_lista_paczek.getItems().add(opis);
                 }
-
-                ekran_kuriera_lista_paczek.getItems().add(opis);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setKurier(Kurier kurier) {
+        this.zalogowanyKurier = kurier;
+        wczytajListePaczek();
     }
 
     public void wyloguj(){

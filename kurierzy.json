@@ -1,8 +1,15 @@
 [ {
   "id" : 1,
-  "imie" : "Filip",
-  "nazwisko" : "Kowalski",
-  "login" : "filip.kowalski",
+  "imie" : "Michał",
+  "nazwisko" : "Markowski",
+  "login" : "michał.markowski",
+  "haslo" : "1234",
+  "miastoObslugi" : "Poznań"
+}, {
+  "id" : 2,
+  "imie" : "Piotr",
+  "nazwisko" : "Kozielski",
+  "login" : "piotr.kozielski",
   "haslo" : "1234",
   "miastoObslugi" : "Warszawa"
 } ]

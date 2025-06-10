@@ -70,6 +70,7 @@ public class EkranAdministratora {
         ekran_administratora_wyloguj.setOnAction(event -> wyloguj());
         ekran_administratora_usun_paczke.setOnAction(event -> usunPaczke());
         ekran_administratora_dodaj_kuriera.setOnAction(event -> dodajKuriera());
+        ekran_administratora_usun_kuriera.setOnAction(event -> usunKuriera());
 
         wczytajListePaczek();
         wczytajListeKurierow();
@@ -139,6 +140,39 @@ public class EkranAdministratora {
     private void dodajKuriera() {
         Main.switchScene("ekran-dodawania-kuriera.fxml");
     }
+
+    private void usunKuriera() {
+        Administrator administrator = new Administrator();
+        String selected = ekran_administratora_lista_kurierow.getSelectionModel().getSelectedItem();
+
+        if (selected != null) {
+            Pattern pattern = Pattern.compile("#(\\d+)");
+            Matcher matcher = pattern.matcher(selected);
+
+            if (matcher.find()) {
+                int idKurier = Integer.parseInt(matcher.group(1));
+
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Potwierdzenie usunięcia");
+                alert.setHeaderText(null);
+                alert.setContentText("Czy na pewno chcesz usunąć kuriera o ID #" + idKurier + "?");
+
+                alert.showAndWait().ifPresent(response -> {
+                    if (response == ButtonType.OK) {
+                        administrator.usunKurier(idKurier);
+                        wczytajListeKurierow();
+                    }
+                });
+            }
+        } else {
+            Alert infoAlert = new Alert(Alert.AlertType.INFORMATION);
+            infoAlert.setTitle("Brak wyboru");
+            infoAlert.setHeaderText(null);
+            infoAlert.setContentText("Zaznacz kuriera do usunięcia.");
+            infoAlert.showAndWait();
+        }
+    }
+
 
     private void wczytajListeKurierow() {
         File file = new File(SCIEZKA_KURIERZY);
