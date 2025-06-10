@@ -23,7 +23,7 @@ public class Administrator extends Uzytkownik {
     }
 
     public Administrator() {
-        super(0, "", "");  // albo domyślne wartości np. ID=0
+        super(0, "", "");
         this.haslo = "";
     }
 

@@ -12,4 +12,18 @@
   "login" : "piotr.kozielski",
   "haslo" : "1234",
   "miastoObslugi" : "Warszawa"
+}, {
+  "id" : 3,
+  "imie" : "Jakub",
+  "nazwisko" : "Jakub",
+  "login" : "jakub.jakub",
+  "haslo" : "1234",
+  "miastoObslugi" : "Łódź"
+}, {
+  "id" : 4,
+  "imie" : "q",
+  "nazwisko" : "q",
+  "login" : "q.q",
+  "haslo" : "1",
+  "miastoObslugi" : "Warszawa"
 } ]

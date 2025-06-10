@@ -1,5 +1,13 @@
 package com.example.courierservice.mas_projekt;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.lang.System;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class Kurier extends Uzytkownik {
     private String login;
     private String haslo;
@@ -19,6 +27,24 @@ public class Kurier extends Uzytkownik {
         this.miastoObslugi = "";
     }
 
+    public void zmienHaslo(String noweHaslo) {
+        ObjectMapper mapper = new ObjectMapper();
+        File plik = new File("kurierzy.json");
+
+        try {
+            List<Kurier> kurierzy = mapper.readValue(plik, new TypeReference<List<Kurier>>() {});
+            for (Kurier k : kurierzy) {
+                if (k.getId() == this.getId()) {
+                    k.setHaslo(noweHaslo);
+                    break;
+                }
+            }
+            mapper.writerWithDefaultPrettyPrinter().writeValue(plik, kurierzy);
+            System.out.println("Hasło zostało zmienione.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     private String generujLogin(String imie, String nazwisko) {
         return imie.toLowerCase().replaceAll("\\s+", "") + "." + nazwisko.toLowerCase().replaceAll("\\s+", "");

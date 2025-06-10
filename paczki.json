@@ -4,9 +4,9 @@
   "nazwiskoOdbiorcy" : "Kowalski",
   "miastoDostawy" : "Warszawa",
   "adresDostawy" : "Koszykowa 11",
-  "status" : "Przyjęta",
+  "status" : "Dostarczona",
   "typ" : "Priorytetowa",
-  "notatka" : "wwwww"
+  "notatka" : "paczka rozjebana"
 }, {
   "numerPaczki" : 2,
   "imieOdbiorcy" : "Marek",
@@ -15,7 +15,7 @@
   "adresDostawy" : "Widokowa 11a",
   "status" : "Przyjęta",
   "typ" : "Zwykła",
-  "notatka" : ""
+  "notatka" : "qqqqqqqqqqqqqqqqq"
 }, {
   "numerPaczki" : 3,
   "imieOdbiorcy" : "Artur",

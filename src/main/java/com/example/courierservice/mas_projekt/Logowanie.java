@@ -6,14 +6,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.lang.System;
+import javafx.scene.control.Alert;
 
 public class Logowanie {
     private String login;
     private String haslo;
 
     private static final String PLIK_KURIERZY = "kurierzy.json";
-    private static final String PLIK_PACZKI = "paczki.json";
     private static final ObjectMapper mapper = new ObjectMapper();
 
     public Logowanie(String login, String haslo) {
@@ -21,24 +20,25 @@ public class Logowanie {
         this.haslo = haslo;
     }
 
-    public Kurier zalogujKurier() {
+    public int zalogujKurier(String login, String haslo) {
         try {
-            String[] dane = login.split("\\.");
-            if (dane.length != 2) return null;
-
-            String imie = dane[0];
-            String nazwisko = dane[1];
-
             List<Kurier> kurierzy = mapper.readValue(new File(PLIK_KURIERZY), new TypeReference<List<Kurier>>() {});
             for (Kurier kurier : kurierzy) {
-                if (kurier.getImie().equalsIgnoreCase(imie) && kurier.getNazwisko().equalsIgnoreCase(nazwisko)) {
-                    Main.switchScene("ekran-kuriera.fxml");
+                if (kurier.getLogin().equalsIgnoreCase(login) && kurier.getHaslo().equals(haslo)) {
+                    return kurier.getId();
                 }
             }
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Błąd logowania");
+            alert.setHeaderText(null);
+            alert.setContentText("Niepoprawny login lub hasło. Spróbuj ponownie.");
+            alert.showAndWait();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return null;
+        return 0;
     }
 }
