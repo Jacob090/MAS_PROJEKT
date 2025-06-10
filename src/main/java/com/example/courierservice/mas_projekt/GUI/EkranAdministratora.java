@@ -7,8 +7,7 @@ import com.example.courierservice.mas_projekt.Paczka;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,9 +15,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonType;
 
 
 public class EkranAdministratora {
@@ -71,6 +68,7 @@ public class EkranAdministratora {
         ekran_administratora_usun_paczke.setOnAction(event -> usunPaczke());
         ekran_administratora_dodaj_kuriera.setOnAction(event -> dodajKuriera());
         ekran_administratora_usun_kuriera.setOnAction(event -> usunKuriera());
+        ekran_administratora_zresetuj_haslo_kuriera.setOnAction(event -> zresetujHasloKuriera());
 
         wczytajListePaczek();
         wczytajListeKurierow();
@@ -195,5 +193,65 @@ public class EkranAdministratora {
         }
     }
 
+    private void zresetujHasloKuriera() {
+        String wybranyKurier = ekran_administratora_lista_kurierow.getSelectionModel().getSelectedItem();
 
+        if (wybranyKurier == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Brak wyboru");
+            alert.setHeaderText(null);
+            alert.setContentText("Wybierz kuriera z listy, aby zresetować hasło.");
+            alert.showAndWait();
+            return;
+        }
+
+        try {
+            Pattern pattern = Pattern.compile("#(\\d+):");
+            Matcher matcher = pattern.matcher(wybranyKurier);
+
+            if (!matcher.find()) {
+                throw new IllegalArgumentException("Nieprawidłowy format wpisu listy kurierów.");
+            }
+
+            int id = Integer.parseInt(matcher.group(1));
+
+            ObjectMapper mapper = new ObjectMapper();
+            File plik = new File("kurierzy.json");
+            List<Kurier> kurierzy = mapper.readValue(plik, new TypeReference<List<Kurier>>() {});
+
+            boolean znaleziono = false;
+
+            for (Kurier k : kurierzy) {
+                if (k.getId() == id) {
+                    k.setHaslo("1234");
+                    znaleziono = true;
+                    break;
+                }
+            }
+
+            if (znaleziono) {
+                mapper.writerWithDefaultPrettyPrinter().writeValue(plik, kurierzy);
+
+                Alert sukces = new Alert(Alert.AlertType.INFORMATION);
+                sukces.setTitle("Sukces");
+                sukces.setHeaderText(null);
+                sukces.setContentText("Hasło zostało zresetowane!");
+                sukces.showAndWait();
+            } else {
+                Alert blad = new Alert(Alert.AlertType.WARNING);
+                blad.setTitle("Nie znaleziono");
+                blad.setHeaderText(null);
+                blad.setContentText("Nie znaleziono kuriera.");
+                blad.showAndWait();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Alert blad = new Alert(Alert.AlertType.ERROR);
+            blad.setTitle("Błąd");
+            blad.setHeaderText(null);
+            blad.setContentText("Wystąpił błąd podczas resetowania hasła.");
+            blad.showAndWait();
+        }
+    }
 }
