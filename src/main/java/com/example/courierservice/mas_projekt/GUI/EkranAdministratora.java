@@ -1,9 +1,6 @@
 package com.example.courierservice.mas_projekt.GUI;
 
-import com.example.courierservice.mas_projekt.Administrator;
-import com.example.courierservice.mas_projekt.Kurier;
-import com.example.courierservice.mas_projekt.Main;
-import com.example.courierservice.mas_projekt.Paczka;
+import com.example.courierservice.mas_projekt.*;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.fxml.FXML;
@@ -11,6 +8,7 @@ import javafx.scene.control.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.System;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -61,6 +59,7 @@ public class EkranAdministratora {
     private final ObjectMapper mapper = new ObjectMapper();
     private final String SCIEZKA_PACZKI = "paczki.json";
     private final String SCIEZKA_KURIERZY = "kurierzy.json";
+    private final String SCIEZKA_POJAZDY = "pojazdy.json";
 
     public void initialize(){
         ekran_administratora_dodaj_paczke.setOnAction(event -> dodajPaczke());
@@ -69,9 +68,12 @@ public class EkranAdministratora {
         ekran_administratora_dodaj_kuriera.setOnAction(event -> dodajKuriera());
         ekran_administratora_usun_kuriera.setOnAction(event -> usunKuriera());
         ekran_administratora_zresetuj_haslo_kuriera.setOnAction(event -> zresetujHasloKuriera());
+        ekran_administratora_dodaj_pojazd.setOnAction(event -> dodajPojazd());
+        ekran_administratora_usun_pojazd.setOnAction(event -> usunPojazd());
 
         wczytajListePaczek();
         wczytajListeKurierow();
+        wczytajListePojazdow();
     }
 
     private void wyloguj(){
@@ -253,5 +255,93 @@ public class EkranAdministratora {
             blad.setContentText("Wystąpił błąd podczas resetowania hasła.");
             blad.showAndWait();
         }
+    }
+
+    private void wczytajListePojazdow() {
+        File file = new File(SCIEZKA_POJAZDY);
+        if (!file.exists()) {
+            System.out.println("Plik pojazdy.json nie istnieje.");
+            return;
+        }
+
+        try {
+            List<Pojazd> pojazdy = mapper.readValue(file, new TypeReference<List<Pojazd>>() {});
+            ekran_administratora_lista_pojazdow.getItems().clear();
+            for (Pojazd p : pojazdy) {
+                String opis = "Model: " + p.getModel() +
+                        ", Rejestracja: " + p.getNumerRejestracyjny() +
+                        ", ID kuriera: " + p.getIDkuriera() ;
+                ekran_administratora_lista_pojazdow.getItems().add(opis);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void dodajPojazd(){
+        Main.switchScene("ekran-dodawania-pojazdu.fxml");
+    }
+
+    private void usunPojazd() {
+        String selected = ekran_administratora_lista_pojazdow.getSelectionModel().getSelectedItem();
+
+        if (selected == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Brak wyboru");
+            alert.setHeaderText(null);
+            alert.setContentText("Zaznacz pojazd do usunięcia.");
+            alert.showAndWait();
+            return;
+        }
+
+        Pattern pattern = Pattern.compile("Rejestracja: ([^,]+)");
+        Matcher matcher = pattern.matcher(selected);
+        if (!matcher.find()) {
+            System.out.println("Nie udało się dopasować numeru rejestracyjnego.");
+            return;
+        }
+
+        String numerRejestracyjny = matcher.group(1);
+
+        Alert potwierdzenie = new Alert(Alert.AlertType.CONFIRMATION);
+        potwierdzenie.setTitle("Potwierdzenie usunięcia");
+        potwierdzenie.setHeaderText(null);
+        potwierdzenie.setContentText("Czy na pewno chcesz usunąć pojazd: " + numerRejestracyjny + "?");
+
+        potwierdzenie.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                try {
+                    File plik = new File("pojazdy.json");
+                    List<Pojazd> pojazdy = mapper.readValue(plik, new TypeReference<List<Pojazd>>() {});
+
+                    boolean usunieto = pojazdy.removeIf(p -> p.getNumerRejestracyjny().equalsIgnoreCase(numerRejestracyjny));
+
+                    if (usunieto) {
+                        mapper.writerWithDefaultPrettyPrinter().writeValue(plik, pojazdy);
+                        wczytajListePojazdow();
+
+                        Alert sukces = new Alert(Alert.AlertType.INFORMATION);
+                        sukces.setTitle("Sukces");
+                        sukces.setHeaderText(null);
+                        sukces.setContentText("Pojazd został usunięty.");
+                        sukces.showAndWait();
+                    } else {
+                        Alert blad = new Alert(Alert.AlertType.WARNING);
+                        blad.setTitle("Błąd");
+                        blad.setHeaderText(null);
+                        blad.setContentText("Nie znaleziono pojazdu do usunięcia.");
+                        blad.showAndWait();
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Alert blad = new Alert(Alert.AlertType.ERROR);
+                    blad.setTitle("Błąd");
+                    blad.setHeaderText(null);
+                    blad.setContentText("Wystąpił problem podczas usuwania pojazdu.");
+                    blad.showAndWait();
+                }
+            }
+        });
     }
 }

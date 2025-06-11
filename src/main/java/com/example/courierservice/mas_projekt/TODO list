@@ -1,12 +1,8 @@
 -zrobić logowanie administratora inne niz admin admin XDDD
 
 -dodać kolejne funkcjonalnosci w ekranAdministratora:
-    ekran_administratora_dodaj_pojazd
-    ekran_administratora_usun_pojazd
     ekran_administratora_edytuj_dane_kuriera;
-    ekran_administratora_zresetuj_haslo_kuriera;
-    ekran_administratora_generuj_raport;
-    ekran_administratora_lista_pojazdow;
+    ekran_administratora_generuj_raport; !!na koniec zrobic metode ktora zbiera dane z dostaw, reklamacji i oceny z dostaw!!
 
 -dodać resztę klas:
     Ocena dostawy
@@ -14,5 +10,3 @@
     próba dostarczenia
     raport
     powiadomienie
-
--
