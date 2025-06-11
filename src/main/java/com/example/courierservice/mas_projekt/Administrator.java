@@ -113,5 +113,4 @@ public class Administrator extends Uzytkownik {
             e.printStackTrace();
         }
     }
-
 }

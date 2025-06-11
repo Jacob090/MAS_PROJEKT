@@ -26,4 +26,11 @@
   "login" : "q.q",
   "haslo" : "1234",
   "miastoObslugi" : "Warszawa"
+}, {
+  "id" : 5,
+  "imie" : "w",
+  "nazwisko" : "w",
+  "login" : "w.w",
+  "haslo" : "1234",
+  "miastoObslugi" : "Katowice"
 } ]
