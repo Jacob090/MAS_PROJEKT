@@ -4,9 +4,9 @@
     ekran_administratora_edytuj_dane_kuriera;
     ekran_administratora_generuj_raport; !!na koniec zrobic metode ktora zbiera dane z dostaw, reklamacji i oceny z dostaw!!
 
--dodać resztę klas:
+-dokonczyc klasy:
     Ocena dostawy
-    Reklamacja
+    Reklamacja [w trakcie robienia - dodać jeszcze ocene dostawy blizniaczo oraz zamknięcie przycisków po ocenie lub po reklamacji i ocenie]
     próba dostarczenia
     raport
     powiadomienie

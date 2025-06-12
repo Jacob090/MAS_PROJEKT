@@ -1,14 +1,21 @@
 package com.example.courierservice.mas_projekt.GUI;
 
 import com.example.courierservice.mas_projekt.Main;
+import com.example.courierservice.mas_projekt.RaportDanych;
+import com.example.courierservice.mas_projekt.Session;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.example.courierservice.mas_projekt.RaportDanych.zapiszDoPlikuRaportu;
 
 public class EkranReklamacji {
-
-    int numerPaczki = 1234567890;
 
     @FXML
     private Button ekran_reklamacji_powrot;
@@ -22,10 +29,12 @@ public class EkranReklamacji {
     @FXML
     private TextArea ekran_reklamacji_opis_reklamacji;
 
+    private final ObjectMapper mapper = new ObjectMapper();
+
     public void initialize() {
         ekran_reklamacji_powrot.setOnAction(action -> powrot());
-        ekran_reklamacji_wyslij_zgloszenie.setOnAction(action -> zapiszReklamacje());
-        ekran_reklamacji_numer_paczki.setText(String.valueOf(numerPaczki));
+        ekran_reklamacji_numer_paczki.setText("   " + String.valueOf(Session.getObecnaPaczkaId()));
+        ekran_reklamacji_wyslij_zgloszenie.setOnAction(event -> zapiszReklamacje());
     }
 
     @FXML
@@ -33,15 +42,14 @@ public class EkranReklamacji {
         Main.switchScene("ekran-klienta.fxml");
     }
 
-    @FXML
-    public void wypiszNumerPaczki() {
-        System.out.println("Numer paczki: " + numerPaczki);
-    }
-
-    @FXML
     private void zapiszReklamacje() {
-        String opis = ekran_reklamacji_opis_reklamacji.getText();
-        System.out.println("Zapisano reklamację: " + opis);
+        String komentarz = ekran_reklamacji_opis_reklamacji.getText().trim();
+
+        String tresc = komentarz;
+
+        RaportDanych raport = new RaportDanych(Session.getObecnaPaczkaId(), "REKLAMACJA", tresc);
+
+        zapiszDoPlikuRaportu(raport);
+
         Main.switchScene("ekran-klienta.fxml");
-    }
-}
+    }}

@@ -10,9 +10,9 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="400.0" style="-fx-background-radius: 10; -fx-background-color: lightgray;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courierservice.mas_projekt.GUI.EkranReklamacji">
    <children>
-      <Button fx:id="ekran_reklamacji_powrot" layoutY="2.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="401.0" style="-fx-background-color: transparent;" text="Powrót                                                                                                         " />
-      <Line endX="293.0" layoutX="107.0" layoutY="33.0" startX="-107.0" />
-      <Text layoutX="72.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zgłoszenie reklamacji">
+      <Button fx:id="ekran_reklamacji_powrot" layoutX="13.0" layoutY="11.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="63.0" style="-fx-background-color: transparent; -fx-border-color: gray; -fx-border-radius: 6;" text="Powrót" />
+      <Line endX="293.0" layoutX="107.0" layoutY="47.0" startX="-107.0" />
+      <Text layoutX="72.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zgłoszenie reklamacji">
          <font>
             <Font name="Segoe UI" size="27.0" />
          </font>

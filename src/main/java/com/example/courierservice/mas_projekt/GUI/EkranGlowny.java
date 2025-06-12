@@ -34,6 +34,7 @@ public class EkranGlowny {
                 if (znaleziona != null) {
                     EkranKlienta.ustawPaczke(znaleziona);
                     Main.switchScene("ekran-klienta.fxml");
+                    com.example.courierservice.mas_projekt.Session.setObecnaPaczkaId(numer);
                 } else {
                     Alert alert = new Alert(Alert.AlertType.WARNING);
                     alert.setTitle("Błąd");

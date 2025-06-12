@@ -13,7 +13,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         primaryStage = stage;
-        switchScene("ekran-administratora.fxml"); //ekran-glowny-logowania.fxml
+        switchScene("ekran-glowny-logowania.fxml"); //ekran-glowny-logowania.fxml
     }
 
     public static void switchScene(String fxmlFile) {

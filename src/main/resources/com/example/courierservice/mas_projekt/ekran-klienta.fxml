@@ -20,7 +20,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Label fx:id="ekran_klienta_status_label" alignment="CENTER" layoutX="257.0" layoutY="212.0" prefHeight="25.0" prefWidth="174.0" style="-fx-border-color: #cccccc; -fx-background-color: #c8c8c8; -fx-background-radius: 8; -fx-border-color: gray; -fx-border-radius: 6;" styleClass="label-bordered" textAlignment="CENTER" textFill="#fcfcfc">
+      <Label fx:id="ekran_klienta_status_label" alignment="CENTER" layoutX="257.0" layoutY="212.0" prefHeight="25.0" prefWidth="174.0" style="-fx-border-color: #cccccc; -fx-background-color: #c8c8c8; -fx-background-radius: 8; -fx-border-color: gray; -fx-border-radius: 6;" styleClass="label-bordered" textAlignment="CENTER">
          <font>
             <Font name="Segoe UI Bold" size="16.0" />
          </font></Label>

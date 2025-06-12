@@ -1,0 +1,17 @@
+[ {
+  "numerPaczki" : 3,
+  "akcja" : "REKLAMACJA",
+  "tresc" : "gfdhfdsjfgdshfds"
+}, {
+  "numerPaczki" : 3,
+  "akcja" : "REKLAMACJA",
+  "tresc" : "dfgdfgdfgsdfg"
+}, {
+  "numerPaczki" : 1,
+  "akcja" : "REKLAMACJA",
+  "tresc" : "sasdasdsda"
+}, {
+  "numerPaczki" : 1,
+  "akcja" : "REKLAMACJA",
+  "tresc" : "dasasdasdasd"
+} ]
