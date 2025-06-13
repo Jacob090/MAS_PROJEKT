@@ -1,6 +1,9 @@
 package com.example.courierservice.mas_projekt.GUI;
 
 import com.example.courierservice.mas_projekt.Main;
+import com.example.courierservice.mas_projekt.OcenaDostawy;
+import com.example.courierservice.mas_projekt.RaportDanych;
+import com.example.courierservice.mas_projekt.Session;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.fxml.FXML;
@@ -12,6 +15,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.courierservice.mas_projekt.RaportDanych.zapiszDoPlikuRaportu;
 
 public class EkranOcenyDostawy {
 
@@ -50,6 +55,8 @@ public class EkranOcenyDostawy {
         ekran_oceny_dostawy_ocena5.setOnAction(action -> ocena(5));
 
         ekran_oceny_komentarz.setEditable(true);
+
+        ekran_oceny_zatwierdzanie.setOnAction(event -> zapiszOcene());
     }
 
     private void powrot() {
@@ -78,5 +85,17 @@ public class EkranOcenyDostawy {
         ekran_oceny_dostawy_ocena3.setStyle(stylDomyslny);
         ekran_oceny_dostawy_ocena4.setStyle(stylDomyslny);
         ekran_oceny_dostawy_ocena5.setStyle(stylDomyslny);
+    }
+
+    private void zapiszOcene() {
+        String komentarz = ekran_oceny_zatwierdzanie.getText().trim();
+
+        String tresc = ocenaDostawyLiczbowo + ", " + komentarz;
+
+        RaportDanych raport = new RaportDanych(Session.getObecnaPaczkaId(), "OCENA", tresc);
+
+        zapiszDoPlikuRaportu(raport);
+
+        Main.switchScene("ekran-klienta.fxml");
     }
 }

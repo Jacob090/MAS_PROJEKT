@@ -14,4 +14,12 @@
   "numerPaczki" : 1,
   "akcja" : "REKLAMACJA",
   "tresc" : "dasasdasdasd"
+}, {
+  "numerPaczki" : 1,
+  "akcja" : "OCENA",
+  "tresc" : "4, Zatwierdź"
+}, {
+  "numerPaczki" : 3,
+  "akcja" : "OCENA",
+  "tresc" : "3, Zatwierdź"
 } ]

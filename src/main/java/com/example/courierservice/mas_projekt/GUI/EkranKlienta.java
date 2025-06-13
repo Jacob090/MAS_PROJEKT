@@ -56,7 +56,6 @@ public class EkranKlienta {
 
     private void ocenaDostawy(){
         Main.switchScene("ekran-oceny-dostawy.fxml");
-        ekran_klienta_ocen_dostawe.setDisable(true);
     }
 
     private void reklamacja(){

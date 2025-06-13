@@ -52,4 +52,5 @@ public class EkranReklamacji {
         zapiszDoPlikuRaportu(raport);
 
         Main.switchScene("ekran-klienta.fxml");
-    }}
+    }
+}

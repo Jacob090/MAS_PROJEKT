@@ -2,6 +2,7 @@ package com.example.courierservice.mas_projekt;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import javafx.scene.control.Alert;
 
 import java.io.File;
 import java.io.IOException;
@@ -38,11 +39,17 @@ public class RaportDanych {
 
         boolean juzIstnieje = raporty.stream().anyMatch(r ->
                 r.getNumerPaczki() == nowyRaport.getNumerPaczki() &&
-                        r.getAkcja().equalsIgnoreCase("REKLAMACJA")
+                        r.getAkcja().equalsIgnoreCase(nowyRaport.getAkcja())
         );
 
         if (juzIstnieje) {
-            System.out.println("Reklamacja dla tej paczki została już zgłoszona.");
+            System.out.println("Ta akcja (" + nowyRaport.getAkcja() + ") została już zgłoszona dla paczki nr " + nowyRaport.getNumerPaczki());
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("");
+            alert.setHeaderText(null);
+            alert.setContentText("Ta akcja (" + nowyRaport.getAkcja() + ") została już zgłoszona dla paczki nr " + nowyRaport.getNumerPaczki());
+
             return;
         }
 
