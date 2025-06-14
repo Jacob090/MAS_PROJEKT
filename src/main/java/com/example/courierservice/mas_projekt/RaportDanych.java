@@ -45,10 +45,11 @@ public class RaportDanych {
         if (juzIstnieje) {
             System.out.println("Ta akcja (" + nowyRaport.getAkcja() + ") została już zgłoszona dla paczki nr " + nowyRaport.getNumerPaczki());
 
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Ocena juz istnieje");
             alert.setHeaderText(null);
-            alert.setContentText("Ta akcja (" + nowyRaport.getAkcja() + ") została już zgłoszona dla paczki nr " + nowyRaport.getNumerPaczki());
+            alert.setContentText(nowyRaport.getAkcja() + " została już zgłoszona dla paczki nr " + nowyRaport.getNumerPaczki());
+            alert.showAndWait();
 
             return;
         }

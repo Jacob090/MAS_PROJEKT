@@ -12,7 +12,7 @@
   "imieOdbiorcy" : "Marek",
   "nazwiskoOdbiorcy" : "Przybylski",
   "miastoDostawy" : "Warszawa",
-  "adresDostawy" : "Widokowa 11a",
+  "adresDostawy" : "Widokowa 13a",
   "status" : "Przyjęta",
   "typ" : "Zwykła",
   "notatka" : "nadpisane"
@@ -25,4 +25,202 @@
   "status" : "Dostarczona",
   "typ" : "Priorytetowa",
   "notatka" : ""
-} ]
+},{
+  "numerPaczki": 1,
+  "imieOdbiorcy": "Beata",
+  "nazwiskoOdbiorcy": "Pawlak",
+  "miastoDostawy": "Kraków",
+  "adresDostawy": "Wielka 17",
+  "status": "Zwrot",
+  "typ": "Zwykła",
+  "notatka": "dostarczyć po 16"
+},{
+    "numerPaczki": 2,
+    "imieOdbiorcy": "Artur",
+    "nazwiskoOdbiorcy": "Przybylski",
+    "miastoDostawy": "Poznań",
+    "adresDostawy": "Jasna 8",
+    "status": "Przyjęta",
+    "typ": "Priorytetowa",
+    "notatka": "paczka rozjebana"
+  },
+  {
+    "numerPaczki": 3,
+    "imieOdbiorcy": "Tomasz",
+    "nazwiskoOdbiorcy": "Kowalski",
+    "miastoDostawy": "Poznań",
+    "adresDostawy": "Widokowa 38",
+    "status": "Dostarczona",
+    "typ": "Zwykła",
+    "notatka": "dostarczyć po 16"
+  },
+  {
+    "numerPaczki": 4,
+    "imieOdbiorcy": "Artur",
+    "nazwiskoOdbiorcy": "Krawczyk",
+    "miastoDostawy": "Kraków",
+    "adresDostawy": "Plac Europejski 47",
+    "status": "Zwrot",
+    "typ": "Priorytetowa",
+    "notatka": "adres niepełny"
+  },
+  {
+    "numerPaczki": 5,
+    "imieOdbiorcy": "Marek",
+    "nazwiskoOdbiorcy": "Mazur",
+    "miastoDostawy": "Wrocław",
+    "adresDostawy": "Jasna 23",
+    "status": "W magazynie",
+    "typ": "Priorytetowa",
+    "notatka": ""
+  },
+  {
+    "numerPaczki": 6,
+    "imieOdbiorcy": "Jan",
+    "nazwiskoOdbiorcy": "Mazur",
+    "miastoDostawy": "Gdańsk",
+    "adresDostawy": "Leśna 23",
+    "status": "Dostarczona",
+    "typ": "Priorytetowa",
+    "notatka": ""
+  },
+  {
+    "numerPaczki": 7,
+    "imieOdbiorcy": "Karol",
+    "nazwiskoOdbiorcy": "Kowalski",
+    "miastoDostawy": "Gdańsk",
+    "adresDostawy": "Leśna 30",
+    "status": "Dostarczona",
+    "typ": "Zwykła",
+    "notatka": "dostarczyć po 16"
+  },
+  {
+    "numerPaczki": 8,
+    "imieOdbiorcy": "Jan",
+    "nazwiskoOdbiorcy": "Pawlak",
+    "miastoDostawy": "Wrocław",
+    "adresDostawy": "Leśna 26",
+    "status": "Dostarczona",
+    "typ": "Priorytetowa",
+    "notatka": "paczka rozjebana"
+  },
+  {
+    "numerPaczki": 9,
+    "imieOdbiorcy": "Marek",
+    "nazwiskoOdbiorcy": "Wiśniewski",
+    "miastoDostawy": "Gdańsk",
+    "adresDostawy": "Wesoła 9",
+    "status": "W drodze",
+    "typ": "Priorytetowa",
+    "notatka": ""
+  },
+  {
+    "numerPaczki": 10,
+    "imieOdbiorcy": "Olga",
+    "nazwiskoOdbiorcy": "Krawczyk",
+    "miastoDostawy": "Wrocław",
+    "adresDostawy": "Leśna 38",
+    "status": "Dostarczona",
+    "typ": "Priorytetowa",
+    "notatka": "dostarczyć po 16"
+  },
+  {
+    "numerPaczki": 11,
+    "imieOdbiorcy": "Beata",
+    "nazwiskoOdbiorcy": "Krawczyk",
+    "miastoDostawy": "Poznań",
+    "adresDostawy": "Słoneczna 35",
+    "status": "W drodze",
+    "typ": "Zwykła",
+    "notatka": "brak info"
+  },
+  {
+    "numerPaczki": 12,
+    "imieOdbiorcy": "Karol",
+    "nazwiskoOdbiorcy": "Wójcik",
+    "miastoDostawy": "Kraków",
+    "adresDostawy": "Jasna 13",
+    "status": "Przyjęta",
+    "typ": "Zwykła",
+    "notatka": ""
+  },
+  {
+    "numerPaczki": 13,
+    "imieOdbiorcy": "Olga",
+    "nazwiskoOdbiorcy": "Wójcik",
+    "miastoDostawy": "Poznań",
+    "adresDostawy": "Wesoła 25",
+    "status": "Przyjęta",
+    "typ": "Zwykła",
+    "notatka": "paczka rozjebana"
+  },
+  {
+    "numerPaczki": 14,
+    "imieOdbiorcy": "Piotr",
+    "nazwiskoOdbiorcy": "Kowalski",
+    "miastoDostawy": "Gdańsk",
+    "adresDostawy": "Słoneczna 14",
+    "status": "Zwrot",
+    "typ": "Priorytetowa",
+    "notatka": "brak info"
+  },
+  {
+    "numerPaczki": 15,
+    "imieOdbiorcy": "Piotr",
+    "nazwiskoOdbiorcy": "Dąbrowski",
+    "miastoDostawy": "Wrocław",
+    "adresDostawy": "Krótka 36",
+    "status": "Zwrot",
+    "typ": "Priorytetowa",
+    "notatka": ""
+  },
+  {
+    "numerPaczki": 16,
+    "imieOdbiorcy": "Anna",
+    "nazwiskoOdbiorcy": "Krawczyk",
+    "miastoDostawy": "Gdańsk",
+    "adresDostawy": "Plac Europejski 29",
+    "status": "W drodze",
+    "typ": "Zwykła",
+    "notatka": ""
+  },
+  {
+    "numerPaczki": 17,
+    "imieOdbiorcy": "Marek",
+    "nazwiskoOdbiorcy": "Przybylski",
+    "miastoDostawy": "Poznań",
+    "adresDostawy": "Słoneczna 39",
+    "status": "Dostarczona",
+    "typ": "Zwykła",
+    "notatka": "adres niepełny"
+  },
+  {
+    "numerPaczki": 18,
+    "imieOdbiorcy": "Jan",
+    "nazwiskoOdbiorcy": "Pawlak",
+    "miastoDostawy": "Poznań",
+    "adresDostawy": "Wielka 25",
+    "status": "W drodze",
+    "typ": "Zwykła",
+    "notatka": "adres niepełny"
+  },
+  {
+    "numerPaczki": 19,
+    "imieOdbiorcy": "Marek",
+    "nazwiskoOdbiorcy": "Pawlak",
+    "miastoDostawy": "Warszawa",
+    "adresDostawy": "Wesoła 36",
+    "status": "W magazynie",
+    "typ": "Priorytetowa",
+    "notatka": "brak info"
+  },
+  {
+    "numerPaczki": 20,
+    "imieOdbiorcy": "Artur",
+    "nazwiskoOdbiorcy": "Krawczyk",
+    "miastoDostawy": "Gdańsk",
+    "adresDostawy": "Widokowa 32",
+    "status": "Zwrot",
+    "typ": "Priorytetowa",
+    "notatka": "opóźnienie w dostawie"
+  } ]

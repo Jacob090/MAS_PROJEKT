@@ -1,12 +1,9 @@
 -zrobić logowanie administratora inne niz admin admin XDDD
 
--dodać kolejne funkcjonalnosci w ekranAdministratora:
-    ekran_administratora_edytuj_dane_kuriera;
-    ekran_administratora_generuj_raport; !!na koniec zrobic metode ktora zbiera dane z dostaw, reklamacji i oceny z dostaw!!
+-Dodać przyciski powrót do dodawania paczki i kuriera
 
 -dokonczyc klasy:
-    Ocena dostawy
-    Reklamacja [w trakcie robienia - dodać jeszcze ocene dostawy blizniaczo oraz zamknięcie przycisków po ocenie lub po reklamacji i ocenie]
     próba dostarczenia
-    raport
     powiadomienie
+
+-naprawić jeszcze zeby w raporcie wypisywały sie opisy reklamacji i oceny

@@ -36,9 +36,6 @@ public class EkranAdministratora {
     private Button ekran_administratora_usun_pojazd;
 
     @FXML
-    private Button ekran_administratora_edytuj_dane_kuriera;
-
-    @FXML
     private Button ekran_administratora_zresetuj_haslo_kuriera;
 
     @FXML
@@ -70,6 +67,7 @@ public class EkranAdministratora {
         ekran_administratora_zresetuj_haslo_kuriera.setOnAction(event -> zresetujHasloKuriera());
         ekran_administratora_dodaj_pojazd.setOnAction(event -> dodajPojazd());
         ekran_administratora_usun_pojazd.setOnAction(event -> usunPojazd());
+        ekran_administratora_generuj_raport.setOnAction(event -> generujRaport());
 
         wczytajListePaczek();
         wczytajListeKurierow();
@@ -343,5 +341,9 @@ public class EkranAdministratora {
                 }
             }
         });
+    }
+
+    private void generujRaport(){
+        Administrator.generujRaport();
     }
 }
