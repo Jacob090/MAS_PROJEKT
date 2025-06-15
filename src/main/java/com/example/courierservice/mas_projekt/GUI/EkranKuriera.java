@@ -1,9 +1,6 @@
 package com.example.courierservice.mas_projekt.GUI;
 
-import com.example.courierservice.mas_projekt.Kurier;
-import com.example.courierservice.mas_projekt.Main;
-import com.example.courierservice.mas_projekt.Paczka;
-import com.example.courierservice.mas_projekt.Session;
+import com.example.courierservice.mas_projekt.*;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.fxml.FXML;
@@ -11,6 +8,7 @@ import javafx.scene.control.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.System;
 import java.util.List;
 
 public class EkranKuriera {
@@ -175,6 +173,8 @@ public class EkranKuriera {
 
         try {
             int numerPaczki = Integer.parseInt(wybranyElement.split(":")[0].replace("#", "").trim());
+            Paczka paczka = new Paczka();
+            paczka.getImieOdbiorcy();
 
             ObjectMapper mapper = new ObjectMapper();
             File plik = new File("paczki.json");
@@ -199,6 +199,8 @@ public class EkranKuriera {
                 alert.showAndWait();
 
                 wczytajListePaczek();
+
+                Powiadomienie.wyslijPowiadomienieODostarczeniu(numerPaczki, paczka.getImieOdbiorcy(), paczka.getNazwiskoOdbiorcy());
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Błąd");

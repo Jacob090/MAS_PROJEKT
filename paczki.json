@@ -6,7 +6,7 @@
   "adresDostawy" : "Koszykowa 11",
   "status" : "Dostarczona",
   "typ" : "Priorytetowa",
-  "notatka" : "paczka rozjebana"
+  "notatka" : "paczka uszkodzona"
 }, {
   "numerPaczki" : 2,
   "imieOdbiorcy" : "Marek",
@@ -42,7 +42,7 @@
     "adresDostawy": "Jasna 8",
     "status": "Przyjęta",
     "typ": "Priorytetowa",
-    "notatka": "paczka rozjebana"
+    "notatka": "paczka uszkodzona"
   },
   {
     "numerPaczki": 3,
@@ -102,7 +102,7 @@
     "adresDostawy": "Leśna 26",
     "status": "Dostarczona",
     "typ": "Priorytetowa",
-    "notatka": "paczka rozjebana"
+    "notatka": ""
   },
   {
     "numerPaczki": 9,
@@ -132,7 +132,7 @@
     "adresDostawy": "Słoneczna 35",
     "status": "W drodze",
     "typ": "Zwykła",
-    "notatka": "brak info"
+    "notatka": ""
   },
   {
     "numerPaczki": 12,
@@ -152,7 +152,7 @@
     "adresDostawy": "Wesoła 25",
     "status": "Przyjęta",
     "typ": "Zwykła",
-    "notatka": "paczka rozjebana"
+    "notatka": ""
   },
   {
     "numerPaczki": 14,
@@ -212,7 +212,7 @@
     "adresDostawy": "Wesoła 36",
     "status": "W magazynie",
     "typ": "Priorytetowa",
-    "notatka": "brak info"
+    "notatka": ""
   },
   {
     "numerPaczki": 20,
