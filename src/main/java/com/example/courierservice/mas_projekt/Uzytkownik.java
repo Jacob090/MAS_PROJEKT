@@ -16,19 +16,10 @@ import java.lang.System;
 
 public abstract class Uzytkownik {
     private static final ObjectMapper mapper = new ObjectMapper();
-    private static final String PLIK_KURIERZY = "kurierzy.json";
-    private static final String PLIK_KLIENCI = "klienci.json";
-    private static final String PLIK_ADMINISTRATORZY = "administratorzy.json";
 
     protected int id;
     protected String imie;
     protected String nazwisko;
-
-    public Uzytkownik(String imie, String nazwisko) {
-        this.id = generateUniqueId();
-        this.imie = imie;
-        this.nazwisko = nazwisko;
-    }
 
     public Uzytkownik(int id, String imie, String nazwisko) {
         this.id = id;
@@ -80,14 +71,6 @@ public abstract class Uzytkownik {
 
     public String getNazwisko() {
         return nazwisko;
-    }
-
-    public void setImie(String imie) {
-        this.imie = imie;
-    }
-
-    public void setNazwisko(String nazwisko) {
-        this.nazwisko = nazwisko;
     }
 
     @Override
